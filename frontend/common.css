@@ -1,0 +1,39 @@
+body, html {
+    height: 100%;
+}
+
+.custom-container {
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(231, 231, 231);
+}
+
+@media (min-width: 720px) {
+    .divisor-w {
+        width: 10px;
+    }
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.custom-header {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.custom-header h3 {
+    margin: 0;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../common.css">
+    <link rel="stylesheet" href="./dashboard.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="container" class="custom-container d-none">
+        <div class="dashboard-content">
+            <div class="row center">
+                <div class="card col-md-5 col-10 col-sm-10">
+                    <h3>Turmas</h3>
+                    <hr />
+                </div>
+                <div class="divisor-w"></div>
+                <div class="card col-md-5 col-10 col-sm-10">
+                    <div class="custom-header">
+                        <h3>Alunos</h3>
+                        <button class="btn btn-outline-dark" data-toggle="modal" data-target="#add-student" onclick="$('#err-add-student').addClass('d-none')">
+                            + Aluno
+                        </button>
+                    </div>
+                    <hr />
+                    <table class="table" id="table-students">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<div class="modal fade" id="add-student" tabindex="-1" role="dialog" aria-labelledby="add-student" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Adicionar Aluno</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="err-add-student" class="alert alert-danger" role="alert">
+                Não foi possível adicionar aluno
+            </div>
+            <form id="form-login">
+                <div class="form-group">
+                    <label for="student-name">Nome</label>
+                    <input type="text" id="student-name" class="form-control" placeholder="Nome">
+                    <small id="student-name-required-alert" class="text-danger d-none">Campo obrigatório</small>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+            <button type="button" id="submit-student" class="btn-submit btn btn-dark" disabled>Salvar</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="../../environment.js"></script>
+<script src="../../common.js"></script>
+<script src="./dashboard.js"></script>

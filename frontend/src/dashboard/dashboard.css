@@ -1,0 +1,9 @@
+.dashboard-content {
+    margin-top: 16px
+}
+
+.center {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
