@@ -12,7 +12,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-select": "^1.13.16",
     "connect": "^3.7.0",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "popper.js": "^1.16.1",
     "serve-static": "^1.14.1"
   }
