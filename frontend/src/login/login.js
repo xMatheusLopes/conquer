@@ -39,7 +39,7 @@ $(document).ready(() => {
             })
 
             request.fail((jqXHR, textStatus) => {
-                alert( "Request failed: " + textStatus )
+                alert( "Verifique se o servidor backend está iniciado" )
             })
         }
         event.preventDefault()

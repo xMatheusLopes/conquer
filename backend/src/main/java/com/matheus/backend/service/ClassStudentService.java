@@ -13,12 +13,12 @@ public class ClassStudentService {
     private ClassStudentRepository _classStudentRepository;
 
     public ClassStudent create(ClassStudent classStudent) throws Exception {
-        int countAlreadyExists = _classStudentRepository.countClassesStudents(classStudent.getClas().getId(), classStudent.getStudent().getId());
+        int countAlreadyExists = _classStudentRepository.countClassesStudents(classStudent.getClassID(), classStudent.getStudentID());
         if (countAlreadyExists > 0) {
             throw new Exception("Student already subscribed in this class");
         }
 
-        int studentsClass = _classStudentRepository.countByClas(classStudent.getClas().getId());
+        int studentsClass = _classStudentRepository.countByClas(classStudent.getClassID());
         if (studentsClass >= 5) {
             throw new Exception("Limit of students already achieved");
         }

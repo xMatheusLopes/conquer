@@ -28,7 +28,7 @@ checkFormIsValid = (formItems) => {
 }
 
 validateFormItem = (value, id, formItems) => {
-    if (value) {
+    if (value && value.length) {
         formItems[id] = 'VALID'
         $(`${id}-required-alert`).addClass('d-none')
     } else {

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
+
     <link rel="stylesheet" href="../../common.css">
     <link rel="stylesheet" href="./dashboard.css">
 
@@ -14,8 +16,25 @@
         <div class="dashboard-content">
             <div class="row center">
                 <div class="card col-md-5 col-10 col-sm-10">
-                    <h3>Turmas</h3>
+                    <div class="custom-header">
+                        <h3>Turmas</h3>
+                        <button class="btn btn-outline-dark" data-toggle="modal" data-target="#add-class" onclick="$('#err-add-class').addClass('d-none')">
+                            + Turma
+                        </button>
+                    </div>
                     <hr />
+                    <table class="table" id="table-classes">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Alunos</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                    
+                        </tbody>
+                    </table>
                 </div>
                 <div class="divisor-w"></div>
                 <div class="card col-md-5 col-10 col-sm-10">
@@ -73,9 +92,47 @@
     </div>
 </div>
 
+<div class="modal fade" id="add-class" tabindex="-1" role="dialog" aria-labelledby="add-class" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Adicionar Turma</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="err-add-class" class="alert alert-danger" role="alert">
+                Foi encontrado um erro na criação da turma
+            </div>
+            <form id="form-login">
+                <div class="form-group">
+                    <label for="class-name">Nome</label>
+                    <input type="text" id="class-name" class="form-control" placeholder="Nome">
+                    <small id="class-name-required-alert" class="text-danger d-none">Campo obrigatório</small>
+                </div>
+                <div class="form-group select-column">
+                    <label for="class-name">Alunos</label>
+                    <select id="students-select" class="selectpicker" multiple>
+                        
+                    </select>      
+                    <small id="students-select-required-alert" class="text-danger d-none">Campo obrigatório</small>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+            <button type="button" id="submit-class" class="btn-submit btn btn-dark" disabled>Salvar</button>
+        </div>
+        </div>
+    </div>
+</div>
+
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="../../node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js"></script>
 
 <script src="../../environment.js"></script>
 <script src="../../common.js"></script>
