@@ -37,3 +37,8 @@ validateFormItem = (value, id, formItems) => {
     }
     checkFormIsValid(formItems)
 }
+
+$('#logout').click(() => {
+    window.localStorage.removeItem('user')
+    window.location.href = "../login/login.html"
+})
