@@ -25,12 +25,9 @@ $(document).ready(() => {
 
                     html += `<tr data-toggle="collapse" href="#accordion${item.id}" class="clickable cursor-pointer">`
                     html += '<td class="columnA">'
-                    html += item.id
-                    html += '</td>'
-                    html += '<td class="columnB">'
                     html += `${item.name}`
                     html += '</td>'
-                    html += '<td class="columnC">'
+                    html += '<td class="columnB">'
                     html += item.students.length == 0 ? 'N/A' : item.students.length
                     html += '</td>'
                     html += '</tr>'
@@ -80,9 +77,6 @@ $(document).ready(() => {
                 for (const item of data) {
                     html += '<tr>'
                     html += '<td class="studentColumnA">'
-                    html += item.id
-                    html += '</td>'
-                    html += '<td class="studentColumnB">'
                     html += item.name
                     html += '</td>'
                     html += '</tr>'
@@ -194,7 +188,7 @@ $(document).ready(() => {
                         if (index == ($('#students-select').val().length)) {
                             $('#add-class').modal('hide')
                             $('#class-name').val('')
-                            $('#class-students').val([])
+                            $('#students-select').val([]).selectpicker('refresh')
                             loadClasses()
                         }
                     });

@@ -14,19 +14,13 @@ td {
     white-space: nowrap;
 }
 td.columnA {
-    width: 20%;
-}
-td.columnB {
     width: 70%;
 }
-td.columnC {
-    width: 10%;
+td.columnB {
+    width: 20%;
 }
 
 td.studentColumnA {
-    width: 20%;
-}
-td.studentColumnB {
     width: 80%;
 }
 
