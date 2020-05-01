@@ -1,9 +1,46 @@
-.dashboard-content {
-    margin-top: 16px
-}
-
 .center {
     display: flex;
     flex: 1;
     justify-content: center;
+}
+
+table {
+    width: 100%;
+}
+td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+td.columnA {
+    width: 20%;
+}
+td.columnB {
+    width: 70%;
+}
+td.columnC {
+    width: 10%;
+}
+
+td.studentColumnA {
+    width: 20%;
+}
+td.studentColumnB {
+    width: 80%;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    margin-bottom: 16px;
+    padding: 12px;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.toolbar .title {
+    color: white;
 }

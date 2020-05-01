@@ -16,33 +16,36 @@ $(document).ready(() => {
         request.done((data) => {            
             let html = ''
 
-            if (data) {
+            if (data.length) {
                 for (const item of data) {
-                    let studentsHTML = ''
+                    let classesHTML = ''
                     for(const student of item.students) {
-                        studentsHTML += `<span class="subtext"># ${student.name}</span>`
+                        classesHTML += `<span class="subtext"># ${student.name}</span>`
                     }
 
-                    html += `<tr data-toggle="collapse" href="#accordion${item.id}" class="clickable">`
-                    html += '<td>'
+                    html += `<tr data-toggle="collapse" href="#accordion${item.id}" class="clickable cursor-pointer">`
+                    html += '<td class="columnA">'
                     html += item.id
                     html += '</td>'
-                    html += '<td>'
-                    html += item.name
+                    html += '<td class="columnB">'
+                    html += `${item.name}`
                     html += '</td>'
-                    html += '<td>'
-                    html += item.students.length
-                    html += '</td>'
-                    html += '</tr>'
-                    html += `<tr id="accordion${item.id}" class="collapse">`
-                    html += '<td colspan="3">'
-                    html += `
-                        <div class="select-column">
-                            ${studentsHTML}
-                        </div>
-                    `
+                    html += '<td class="columnC">'
+                    html += item.students.length == 0 ? 'N/A' : item.students.length
                     html += '</td>'
                     html += '</tr>'
+
+                    if (item.students.length) {
+                        html += `<tr id="accordion${item.id}" class="collapse">`
+                        html += '<td colspan="3">'
+                        html += `
+                            <div class="select-column">
+                                ${classesHTML}
+                            </div>
+                        `
+                        html += '</td>'
+                        html += '</tr>'
+                    }
                 }
             } else {
                 html += '<tr>'
@@ -73,13 +76,13 @@ $(document).ready(() => {
             let html = ''
             let options = '';
 
-            if (data) {
+            if (data.length) {
                 for (const item of data) {
                     html += '<tr>'
-                    html += '<td>'
+                    html += '<td class="studentColumnA">'
                     html += item.id
                     html += '</td>'
-                    html += '<td>'
+                    html += '<td class="studentColumnB">'
                     html += item.name
                     html += '</td>'
                     html += '</tr>'
@@ -174,7 +177,9 @@ $(document).ready(() => {
             })
             
             request.done((data) => {    
+                index = 0;
                 for (const studentID of $('#students-select').val()) {
+                    index++;
                     const request = $.ajax({
                         url: `${baseApi}classes-students`,
                         method: 'POST',
@@ -185,19 +190,29 @@ $(document).ready(() => {
                         contentType: 'application/json; charset=utf-8',
                     })
 
+                    request.done((data) => {
+                        if (index == ($('#students-select').val().length)) {
+                            $('#add-class').modal('hide')
+                            $('#class-name').val('')
+                            $('#class-students').val([])
+                            loadClasses()
+                        }
+                    });
+
                     request.fail((jqXHR, textStatus) => {
                         $('#err-add-class').removeClass('d-none')
                     })
                 }
-                $('#add-class').modal('hide')
-                $('#class-name').val('')
-                $('#class-students').val([])
-                loadClasses()
             })
     
             request.fail((jqXHR, textStatus) => {
                 $('#err-add-student').removeClass('d-none')
             })
         }
+    })
+
+    $('#logout').click(() => {
+        window.localStorage.removeItem('user')
+        window.location.href = "../login/login.html"
     })
 })

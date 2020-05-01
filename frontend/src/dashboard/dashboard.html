@@ -13,18 +13,21 @@
 </head>
 <body>
     <div id="container" class="custom-container d-none">
-        <div class="dashboard-content">
+        <div>
+            <div class="toolbar">
+                <span class="title">Dashboard</span>
+                <button class="btn btn-primary" id="logout">Sair</button>
+            </div>
             <div class="row center">
                 <div class="card col-md-5 col-10 col-sm-10">
                     <div class="custom-header">
                         <h3>Turmas</h3>
-                        <button class="btn btn-outline-dark" data-toggle="modal" data-target="#add-class" onclick="$('#err-add-class').addClass('d-none')">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#add-class" onclick="$('#err-add-class').addClass('d-none')">
                             + Turma
                         </button>
                     </div>
-                    <hr />
-                    <table class="table" id="table-classes">
-                        <thead class="thead-dark">
+                    <table class="table table-hover" id="table-classes">
+                        <thead class="thead-light">
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
@@ -40,13 +43,12 @@
                 <div class="card col-md-5 col-10 col-sm-10">
                     <div class="custom-header">
                         <h3>Alunos</h3>
-                        <button class="btn btn-outline-dark" data-toggle="modal" data-target="#add-student" onclick="$('#err-add-student').addClass('d-none')">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#add-student" onclick="$('#err-add-student').addClass('d-none')">
                             + Aluno
                         </button>
                     </div>
-                    <hr />
-                    <table class="table" id="table-students">
-                        <thead class="thead-dark">
+                    <table class="table table-hover" id="table-students">
+                        <thead class="thead-light">
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
@@ -85,8 +87,8 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
-            <button type="button" id="submit-student" class="btn-submit btn btn-dark" disabled>Salvar</button>
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancelar</button>
+            <button type="button" id="submit-student" class="btn-submit btn btn-primary" disabled>Salvar</button>
         </div>
         </div>
     </div>
@@ -121,8 +123,8 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
-            <button type="button" id="submit-class" class="btn-submit btn btn-dark" disabled>Salvar</button>
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancelar</button>
+            <button type="button" id="submit-class" class="btn-submit btn btn-primary" disabled>Salvar</button>
         </div>
         </div>
     </div>
